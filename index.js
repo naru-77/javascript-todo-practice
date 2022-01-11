@@ -9,6 +9,7 @@ function handleFormSubmit() {
     alert("テキストを入力してください。");
     return;
   }
+
   const todosEl = document.getElementById("todos");
   const todoEl = createTodoElement(inputValue);
   todosEl.appendChild(todoEl);
@@ -21,11 +22,16 @@ function handleFormSubmit() {
  * @returns TODO要素
  */
 function createTodoElement(inputValue) {
+  // TODO要素を作る
   const todoEl = document.createElement("li");
+
+  // checkbox要素を作る
   const checkBoxEl = document.createElement("input");
   todoEl.appendChild(checkBoxEl);
+    // label要素を作る
   const labelEl = document.createElement("label");
   labelEl.innerText = inputValue;
+    // checkbox要素を作る
   checkBoxEl.type = "checkbox";
   checkBoxEl.onchange = function (e) {
     const checked = e.target.checked;
@@ -36,7 +42,7 @@ function createTodoElement(inputValue) {
     }
   };
   todoEl.appendChild(labelEl);
-
+ // ボタン要素を作る
   const buttonEl = document.createElement("button");
   buttonEl.innerText = "削除";
   buttonEl.onclick = function () {
